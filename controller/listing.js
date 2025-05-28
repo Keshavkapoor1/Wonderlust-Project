@@ -98,11 +98,11 @@ module.exports.updatelisting=async(req,res)=>{
     
     
     let ulistings=await listing.findByIdAndUpdate(id,{description,title,price,location,country});
-    if(typeof req.file!="undifined"){
-    let url=req.file.path;
-    let filename=req.file.filename;
-    ulistings.image={url,filename};
-   await ulistings.save()
+     if (req.file) {
+      const url = req.file.path;
+      const filename = req.file.filename;
+      ulistings.image = { url, filename };
+      await ulistings.save();
     }
  req.flash("sucess","listing updated");
  
