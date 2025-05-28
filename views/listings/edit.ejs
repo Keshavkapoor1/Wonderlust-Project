@@ -1,0 +1,49 @@
+<%-layout("/layout/boilerplate.ejs")%>
+<div class="row mt-3">
+<div class="col-8 offset-2">
+   <h2>Edit your listing</h2> 
+   <form  method="POST" action="/listings/<%=listings._id%>?_method=PUT" novalidate class="needs-validation" enctype="multipart/form-data">
+    <div class="mb-3">
+     <label for="title" class="form-label">Title</label>
+    <input type="text" name="title" value="<%=listings.title %> " class="form-control" required>
+    <div class="valid-feedback">  Title looks good </div>
+</div>
+
+    <div class="mb-3">
+        <label for="Description" class="form-label">Description</label>
+        <textarea type="text" name="description" placeholder="enter description"class="form-control " required><%=listings.description %></textarea>
+        <div class="invalid-feedback">Description should be valid</div>
+    </div>
+<div class="mb-3">
+    <p><b>Original image</b></p>
+    <img src="<%=originalimage%>" alt="image" height="250px"width="250px">
+</div>
+    <div class="mb-3">
+    <label for="Image" class="form-label">Upload new Image</label>
+    <input type="file" name="image"class="form-control">
+    <div class="invalid-feedback">Image should be valid</div>
+</div>
+
+   <div class="mb-3">
+    <label for="Price" class="form-label">Price</label>
+    <input type="number" name="price" value="<%=listings.price %>"class="form-control" required>
+    <div class="invalid-feedback">price should be valid</div>
+</div>
+    <div class="mb-3">
+    <label for="Location" class="form-label">Location</label>
+    <input type="text" name="location" value="<%=listings.location %>"class="form-control" required>
+    <div class="invalid-feedback">location should be valid</div>
+</div>
+
+    <div class="mb-3">
+    <label for="Country" class="form-label">Country</label>
+    <input type="text" name="country"value="<%=listings.country %>"class="form-control" required>
+    <div class="invalid-feedback">country should be valid</div>
+</div>
+
+    <button class="btn btn-dark mt-2  mb-2 editbt">Edit</button>
+    </form>
+</div>
+</div>
+</body>
+</html>
