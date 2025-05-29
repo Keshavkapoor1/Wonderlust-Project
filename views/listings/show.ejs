@@ -1,4 +1,21 @@
 <%-layout("/layout/boilerplate.ejs")%>
+<style>
+  .book-btn {
+  background-color: #007bff;
+  color: white;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: 0.3s;
+}
+
+.book-btn:hover {
+  background-color: #0056b3;
+}
+
+</style>
 <div class="row">
 <div class="col-8 offset-3 mt-3">
   <h3><b><%=listings.title %></b></h3>
@@ -24,6 +41,12 @@
     </form>
   </div>
 <%}%>
+<div class="btns mb-3">
+<%if(currUser){%>
+  <button onclick="bookNow('Hotel Name')" class="book-btn col-2 offset-3">Book Now</button>
+
+<%}%>
+</div>
   <hr>
 <div class="col-8 offset-3 mb-2" >
   <%if(currUser){%>
@@ -63,10 +86,10 @@
   <div class="card col-5 mb-3 ms-3">
     <div class="card-body">
     <h5 class="card-text">@<%= review.author.username %></h5>
-      <p class="starability-result card-text" data-rating=<%=review.rating%>>
+       <p class="starability-result card-text" data-rating="<%= review.rating %>"></p>
          <p class="card-text"><%=review.comment%></p>
   
-  </p>
+  
       <form class="mb-2 mt-2" method="POST"  action="/listings/<%=listings.id %>/reviews/<%=review.id %>?_method=DELETE">
     <button class="btn btn-dark">Delete</button>
     </form>
@@ -79,6 +102,10 @@
 
   </div>
   </div>
-  
+<script>// JS Function
+function bookNow(hotelName) {
+  alert(`Thanks for choosing ${hotelName}!\nBooking feature coming soon.`);
+}
+</script>
 </body>
 </html>
