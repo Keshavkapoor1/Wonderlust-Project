@@ -34,7 +34,7 @@
   <br>
   <% if(currUser && listings.owner._id.equals(currUser._id)){%>
   <div class="btns mb-3">
-    <a href="/listings/<%=listings.id%>/edit" class="btn btn-dark col-1 offset-3 editbt">Edit</a>
+    <a href="/listings/<%=listings.id%>/edit" class="btn btn-dark  offset-3 editbt">Edit</a>
 
   <form method="POST" action="/listings/<%=listings.id%>?_method=DELETE">
     <button class="btn btn-dark offset-5">Delete</button>
@@ -104,7 +104,7 @@
   </div>
 <script>// JS Function
 function bookNow(hotelName) {
-  alert(`Thanks for choosing ${hotelName}!\nBooking feature coming soon.`);
+  alert(`Thanks for choosing <%=listings.title%>\nBooking feature coming soon.`);
 }
 </script>
 </body>

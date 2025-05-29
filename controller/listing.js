@@ -1,6 +1,5 @@
 const listing=require("../models/listing.js");
 
-
 /*module.exports.index=async(req,res)=>{
     let listings=await listing.find();
     res.render("listings/index.ejs",{listings});
